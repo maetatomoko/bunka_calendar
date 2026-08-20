@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文化ホール教室　組織図</title>
+  <style>
+    :root {
+      --box-w: 200px;
+      --gap: 24px;
+      --gpad: 20px;
+      --row-w: calc(var(--box-w) * 3 + var(--gap) * 2);
+      --chart-w: calc(var(--row-w) + var(--gpad) * 2 + 4px);
+      --line: #222;
+      --group-line: #999;
+    }
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .back {
+      display: inline-block;
+      margin: 40px 0 8px;
+      padding: 12px 28px;
+      border: 1px solid #777;
+      border-radius: 6px;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .back:hover {
+      background: #f2f2f2;
+    }
+    h1 {
+      font-size: 26px;
+      margin: 24px 0 8px;
+      text-align: center;
+    }
+    .subtitle {
+      margin: 0 0 40px;
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+    }
+
+    .chart {
+      width: 100%;
+      max-width: var(--chart-w);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .row {
+      display: flex;
+      justify-content: center;
+      gap: var(--gap);
+      width: 100%;
+    }
+    .box {
+      box-sizing: border-box;
+      width: var(--box-w);
+      flex-shrink: 0;
+      border: 2px solid var(--line);
+      padding: 14px 10px;
+      text-align: center;
+      background: #fff;
+    }
+    .role {
+      font-size: 13px;
+      color: #333;
+    }
+    .name {
+      margin-top: 8px;
+      font-size: 22px;
+      font-weight: 700;
+      min-height: 1.4em;
+      line-height: 1.4;
+    }
+
+    /* 同じ階層をまとめる枠（2階層目・3階層目） */
+    .group {
+      box-sizing: border-box;
+      width: 100%;
+      border: 2px solid var(--group-line);
+      border-radius: 10px;
+      background: #f7f7f7;
+      padding: 0 var(--gpad) var(--gpad);
+    }
+
+    /* 階層と階層をつなぐ縦線 */
+    .stem {
+      width: 2px;
+      height: 26px;
+      background: var(--line);
+    }
+
+    /* 枠の中で、上端から各枠へ分岐する罫線 */
+    .branch {
+      position: relative;
+      height: 50px;
+    }
+    .branch .v-top {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: var(--line);
+      transform: translateX(-1px);
+    }
+    .branch .h-bar {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      width: calc(var(--row-w) - var(--box-w));
+      height: 2px;
+      background: var(--line);
+      transform: translateX(-50%);
+    }
+    .branch .stubs {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      height: 30px;
+      display: flex;
+      gap: var(--gap);
+      transform: translateX(-50%);
+    }
+    .branch .stubs span {
+      position: relative;
+      width: var(--box-w);
+    }
+    .branch .stubs span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: var(--line);
+      transform: translateX(-1px);
+    }
+
+    /* 横並びに必要な幅（枠 692px + body余白 40px）を確保できない場合は縦積み。
+       枠だけで階層を区別する */
+    @media (max-width: 740px) {
+      :root {
+        --gpad: 14px;
+      }
+      .chart {
+        max-width: 420px;
+      }
+      .row {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+      .box {
+        width: 100%;
+      }
+      .group {
+        padding: var(--gpad);
+      }
+      .branch {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>文化ホール教室　組織図</h1>
+  <p class="subtitle">運営体制</p>
+
+  <div class="chart">
+    <!-- 1階層目 -->
+    <div class="row">
+      <div class="box">
+        <div class="role">教室リーダー</div>
+        <div class="name">古屋</div>
+      </div>
+    </div>
+
+    <div class="stem"></div>
+
+    <!-- 2階層目 -->
+    <div class="group">
+      <div class="branch">
+        <div class="v-top"></div>
+        <div class="h-bar"></div>
+        <div class="stubs"><span></span><span></span><span></span></div>
+      </div>
+      <div class="row">
+        <div class="box">
+          <div class="role">副リーダー</div>
+          <div class="name">神山</div>
+        </div>
+        <div class="box">
+          <div class="role">会計</div>
+          <div class="name">伊井</div>
+        </div>
+        <div class="box">
+          <div class="role">理事</div>
+          <div class="name">加藤</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stem"></div>
+
+    <!-- 3階層目 -->
+    <div class="group">
+      <div class="branch">
+        <div class="v-top"></div>
+        <div class="h-bar"></div>
+        <div class="stubs"><span></span><span></span><span></span></div>
+      </div>
+      <div class="row">
+        <div class="box">
+          <div class="role">1年生部会リーダー</div>
+          <div class="name"><!-- ここに名前を入力 --></div>
+        </div>
+        <div class="box">
+          <div class="role">2年生部会リーダー</div>
+          <div class="name"><!-- ここに名前を入力 --></div>
+        </div>
+        <div class="box">
+          <div class="role">3年生部会リーダー</div>
+          <div class="name"><!-- ここに名前を入力 --></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="back" href="index.html">← トップページへ戻る</a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教室カレンダー</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .back {
+      display: inline-block;
+      margin: 32px 0 8px;
+      padding: 12px 28px;
+      border: 1px solid #777;
+      border-radius: 6px;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .back:hover {
+      background: #f2f2f2;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 16px 0 20px;
+      text-align: center;
+    }
+    iframe {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>教室カレンダー</h1>
+  <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FTokyo&showPrint=0&src=dG9tb2tvLmlpQGVzY28tbWF0c3Vkb2VkdS5vcmc&src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%2333b679&color=%23f4511e" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+  <a class="back" href="index.html">← トップページへ戻る</a>
+</body>
+</html>
