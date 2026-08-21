@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>年間行事</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .back {
+      display: inline-block;
+      margin: 32px 0 8px;
+      padding: 12px 28px;
+      border: 1px solid #777;
+      border-radius: 6px;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .back:hover {
+      background: #f2f2f2;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 16px 0 20px;
+      text-align: center;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
+    }
+    th, td {
+      border: 1px solid #777;
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 16px;
+    }
+    thead th {
+      background: #f2f2f2;
+    }
+    .date {
+      white-space: nowrap;
+    }
+    /* 「7月4日（土）」などの塊は途中で改行させない（狭い画面での可読性） */
+    .date .md {
+      white-space: nowrap;
+    }
+    .note {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      th, td {
+        padding: 10px 8px;
+        font-size: 14px;
+      }
+      /* 日付列を一番狭くし、イベント名・担当者に幅を回す */
+      table {
+        table-layout: fixed;
+      }
+      thead th:nth-child(1) { width: 32%; }
+      thead th:nth-child(2) { width: 42%; }
+      thead th:nth-child(3) { width: 26%; }
+      /* 画面幅に収めるため、日付は折り返しを許可し文字も小さくする */
+      .date {
+        white-space: normal;
+        font-size: 12px;
+      }
+      .note {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>年間行事</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>イベント名</th>
+        <th>担当者</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="date">2026年<span class="md">7月4日（土）</span></td>
+        <td>避難訓練</td>
+        <td>福島さん　白石さん</td>
+      </tr>
+      <tr>
+        <td class="date">
+          2026年<span class="md">7月24日（金）</span>・<span class="md">25日（土）</span><br>
+          2026年<span class="md">8月28日（金）</span>・<span class="md">29日（土）</span>・<span class="md">30日（日）</span>
+        </td>
+        <td>夏休み教室</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="date">2026年<span class="md">9月26日（土）</span></td>
+        <td>
+          先輩と話そう会
+          <span class="note">15:30 ／ ゆうまつど</span>
+        </td>
+        <td>神山さん　長谷部さん</td>
+      </tr>
+      <tr>
+        <td class="date">
+          2026年<span class="md">10月11日（日）</span><br>
+          〜2026年<span class="md">12月20日（日）</span>
+        </td>
+        <td>
+          受験教室
+          <span class="note">毎週日曜日 13:30〜</span>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="date">2026年<span class="md">10月17日（土）</span></td>
+        <td>松戸市国際文化祭</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="date">2027年3月</td>
+        <td>卒業おめでとう会</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a class="back" href="index.html">← トップページへ戻る</a>
+</body>
+</html>
